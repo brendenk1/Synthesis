@@ -6,7 +6,7 @@ import Foundation
 
  These objects represent the source of truth over time
  
- The Kernel can publish updates on any thread as the connections the Kernel is connected to will update its value. Any connections that emit an error are dropped by the Kernel leaving the existing value in tact.
+ The Kernel can publish values on any given thread as defined by the connections provided. Any connections that emit an error are dropped by the Kernel leaving the existing value in tact.
  
  By design the Kernel instance always publishes `Swift.Optional` types. This allows for more nuanced expression of any source of truth. For example if the instance is representing some value from a remote source, then at time of initialization that value from the remote source might be unknown.
  
