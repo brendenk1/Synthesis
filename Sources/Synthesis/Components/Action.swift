@@ -22,10 +22,15 @@ import Foundation
  
  Calling `execute(with:)` on the action serves to immediately form the connection and the underlying subscription to perform the work, allowing for the subscriber to be notified of any errors encountered. Any Errors received will be published on the `Main` thread.
  */
-struct Action<C, T>
+public struct Action<C, T>
 where C: Connector,
       C.Element == T
 {
+    public init(connector: C, kernel: Kernel<T>) {
+        self.connector = connector
+        self.kernel = kernel
+    }
+    
     let connector: C
     let kernel: Kernel<T>
     
@@ -47,12 +52,12 @@ where C: Connector,
     }
     
     /// Calling `execute(with:)` on the action serves to immediately form the connection and the underlying subscription to perform the work, allowing for the subscriber to be notified of any errors encountered. Any Errors received will be published on the `Main` thread.
-    func execute(with subscriber: Subscribers.ErrorSubscription) {
+    public func execute(with subscriber: Subscribers.ErrorSubscription) {
         kernel.subscribeTo(connection(errorSubscription: subscriber))
     }
     
     /// Calling `execute()` on the action serves to immediately form the connection and the underlying subscription to perform the work, ignoring any errors that might result from the connection.
-    func execute() {
+    public func execute() {
         kernel.subscribeTo(connector.connect())
     }
 }

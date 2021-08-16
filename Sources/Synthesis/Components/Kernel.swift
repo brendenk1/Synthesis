@@ -14,18 +14,18 @@ import Foundation
  
  let kernel: Kernel<Date> = Kernel()
  */
-final class Kernel<T>: ObservableObject
+public final class Kernel<T>: ObservableObject
 {
     @Published private var value: T?
     
     /// A publisher that will emit the current value and any updates as received by the Kernel
-    func whenValueUpdates() -> AnyPublisher<T?, Never> {
+    public func whenValueUpdates() -> AnyPublisher<T?, Never> {
         $value
             .eraseToAnyPublisher()
     }
     
     /// A method that allows the Kernel to receive a connection
-    func subscribeTo<P>(_ connection: P)
+    public func subscribeTo<P>(_ connection: P)
     where P: Publisher,
           P.Output == T?,
           P.Failure == Error

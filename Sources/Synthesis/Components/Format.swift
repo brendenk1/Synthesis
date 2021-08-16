@@ -13,18 +13,18 @@ import Foundation
  
  The apply formatting method returns a publisher itself allowing this to be chained in a subscription
  */
-struct Format<T, V>
+public struct Format<T, V>
 {
-    init(format: @escaping (T) -> V) {
+    public init(format: @escaping (T) -> V) {
         self.format = format
     }
     
-    typealias FormattedOutput = AnyPublisher<V, Never>
+    public typealias FormattedOutput = AnyPublisher<V, Never>
     
     let format: (T) -> V
     
     /// The apply formatting method returns a publisher itself allowing this to be chained in a subscription
-    func applyFormatting<P>(from source: P) -> FormattedOutput
+    public func applyFormatting<P>(from source: P) -> FormattedOutput
     where P: Publisher,
           P.Output == T,
           P.Failure == Never

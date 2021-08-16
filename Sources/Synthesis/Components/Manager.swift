@@ -14,15 +14,15 @@ import Foundation
  manager.whenFormattedValueReceived(from: someFormatter)
  */
 
-final class Manager<V>: ObservableObject
+public final class Manager<V>: ObservableObject
 where V: Equatable,
       V: Identifiable
 {
-    typealias Source = AnyPublisher<V?, Never>
+    public typealias Source = AnyPublisher<V?, Never>
     
-    @Published var value: V?
+    @Published public private(set) var value: V?
     
-    func whenFormattedValueReceived(from source: Source) {
+    public func whenFormattedValueReceived(from source: Source) {
         source
             .removeDuplicates()
             .receive(on: DispatchQueue.main)

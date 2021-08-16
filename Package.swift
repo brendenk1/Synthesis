@@ -7,7 +7,7 @@ let package = Package(
     name: "Synthesis",
     platforms: [
         .iOS(.v13),
-        .macOS(.v10_15),
+        .macOS(.v11),
         .macCatalyst(.v13),
         .tvOS(.v13),
         .watchOS(.v6)

@@ -20,23 +20,23 @@ import Foundation
  }
  */
 extension Subscribers {
-    struct ErrorSubscription: Subscriber {
-        init(onError: @escaping (Error) -> Void) {
+    public struct ErrorSubscription: Subscriber {
+        public init(onError: @escaping (Error) -> Void) {
             self.onError = onError
         }
         
         let onError: (Error) -> Void
-        let combineIdentifier: CombineIdentifier = .init()
+        public let combineIdentifier: CombineIdentifier = .init()
         
-        func receive(subscription: Subscription) {
+        public func receive(subscription: Subscription) {
             subscription.request(.max(1))
         }
         
-        func receive(_ input: Error) -> Subscribers.Demand {
+        public func receive(_ input: Error) -> Subscribers.Demand {
             onError(input)
             return .none
         }
         
-        func receive(completion: Subscribers.Completion<Never>) { }
+        public func receive(completion: Subscribers.Completion<Never>) { }
     }
 }

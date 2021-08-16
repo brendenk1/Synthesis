@@ -23,7 +23,7 @@ import Foundation
      }
  }
  */
-protocol Connector {
+public protocol Connector {
     typealias Output = AnyPublisher<Element?, Error>
     
     associatedtype Element
