@@ -52,7 +52,7 @@ public struct Format<T, V>
  */
 extension Publisher {
     /// Allows for the publisher chain to take a format parameter
-    func formatUsing<FormatOutput>(_ format: Format<Output, FormatOutput>) -> AnyPublisher<FormatOutput, Failure>
+    public func formatUsing<FormatOutput>(_ format: Format<Output, FormatOutput>) -> AnyPublisher<FormatOutput, Failure>
     where Failure == Never
     {
         format.applyFormatting(from: self)
