@@ -47,3 +47,24 @@ These objects represent the source of truth over time
 noun: a system that controls or organizes processes
 
 These objects represent formatted values for presentation
+
+## Diagram
+
++-------------------------------------------------------------------------+
+|                                                                         |
+|                                                                         |
+|                                     +--------------------- UI           |
+|                                     |                      ^            |
+|                                     |                      |            |
+|                                     +--------------------- Manager      |
+|                                     |                      ^            |
+|                                     v                      |            |
+|                                   Action                   Format       |                           
+|                                     |                      ^            |
+|                                     v                      |            |
+|       Outside Sources ----------> Connector -------------> Kernel       |
+|                                                                         |
+|                                                                         |
+|                                                                         |
++-------------------------------------------------------------------------+
+
