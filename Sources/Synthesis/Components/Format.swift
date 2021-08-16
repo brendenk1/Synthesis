@@ -34,3 +34,27 @@ public struct Format<T, V>
             .eraseToAnyPublisher()
     }
 }
+
+/*
+ noun: a defined structure for the processing or display of data
+
+ These objects provide definitions on how to present data
+ 
+ Convenience method that allows for passing a format object into a publisher chain.
+ 
+ For example:
+ 
+ let format: Format<Int, String> = Format(format: { number in "\(number)" })
+ [1,2,3,4,5]
+    .publisher
+    .formatUsing(format)
+    .sink(receiveValue: { print($0) })
+ */
+extension Publisher {
+    /// Allows for the publisher chain to take a format parameter
+    func formatUsing<FormatOutput>(_ format: Format<Output, FormatOutput>) -> AnyPublisher<FormatOutput, Failure>
+    where Failure == Never
+    {
+        format.applyFormatting(from: self)
+    }
+}
