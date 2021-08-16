@@ -18,6 +18,8 @@ public final class Manager<V>: ObservableObject
 where V: Equatable,
       V: Identifiable
 {
+    public init() { }
+    
     public typealias Source = AnyPublisher<V?, Never>
     
     @Published public private(set) var value: V?
