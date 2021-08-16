@@ -49,7 +49,7 @@ noun: a system that controls or organizes processes
 These objects represent formatted values for presentation
 
 ## Diagram
-
+```
 +-------------------------------------------------------------------------+
 |                                                                         |
 |                                                                         |
@@ -59,7 +59,7 @@ These objects represent formatted values for presentation
 |                                     +--------------------- Manager      |
 |                                     |                      ^            |
 |                                     v                      |            |
-|                                   Action                   Format       |                           
+|                                   Action                   Format       | 
 |                                     |                      ^            |
 |                                     v                      |            |
 |       Outside Sources ----------> Connector -------------> Kernel       |
@@ -67,4 +67,4 @@ These objects represent formatted values for presentation
 |                                                                         |
 |                                                                         |
 +-------------------------------------------------------------------------+
-
+```
