@@ -16,6 +16,8 @@ import Foundation
  */
 public final class Kernel<T>: ObservableObject
 {
+    public init() { }
+    
     @Published private var value: T?
     
     /// A publisher that will emit the current value and any updates as received by the Kernel
