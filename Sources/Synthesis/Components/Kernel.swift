@@ -20,6 +20,11 @@ public final class Kernel<T>: ObservableObject
     
     @Published private var value: T?
     
+    /// A property that represents the current value of the kernel
+    public var currentValue: T? {
+        value
+    }
+    
     /// A publisher that will emit the current value and any updates as received by the Kernel
     public func whenValueUpdates() -> AnyPublisher<T?, Never> {
         $value
