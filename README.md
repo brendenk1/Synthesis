@@ -68,3 +68,9 @@ These objects represent formatted values for presentation
 |                                                                         |
 +-------------------------------------------------------------------------+
 ```
+
+## Connectors
+
+* SetValueConnector
+
+ A default connect suitable for setting a value on a `Kernel` instance.
