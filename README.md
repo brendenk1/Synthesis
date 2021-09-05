@@ -74,3 +74,23 @@ These objects represent formatted values for presentation
 * SetValueConnector
 
  A default connect suitable for setting a value on a `Kernel` instance.
+
+## Register
+
+noun: a location in a store of data, used for a specific purpose and with quick access time
+
+This object is used to store a collection of unique elements with fast access. Methods are provided to update registry with both new and existing elements, remove elements, clear all elements, and find elements.
+
+For example:
+
+```
+let register: Register<Int> = Register()
+register.updateRegister(withElement: 1)
+register.updateRegister(withElement: 2)
+
+do {
+    let value = try register.findRegistryItem(matching: 2)
+} catch {
+    print(error)
+}
+```
