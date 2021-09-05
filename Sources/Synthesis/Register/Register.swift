@@ -22,6 +22,8 @@ import Foundation
  */
 final public class Register<Element>
 where Element: Hashable {
+    public init() { }
+    
     fileprivate let kernel: Kernel<Set<Element>> = Kernel()
 }
 
