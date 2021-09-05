@@ -139,6 +139,13 @@ final class RegisterTests: XCTestCase {
         // Criteria will error because more than a single matching item can be found
         XCTAssertThrowsError(try register.findRegistryItem(byMatching: { $0 % 2 == 0 }))
     }
+    
+    func testRegistryContainsItem() {
+        let register: Register<Int> = Register()
+        register.updateRegister(withElement: 1)
+        let expectedOutput = true
+        XCTAssertEqual(register.contains(byMatching: { $0 == 1 }), expectedOutput)
+    }
 }
 
 fileprivate struct TestRegistryItem: Hashable {

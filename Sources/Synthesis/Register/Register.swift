@@ -89,6 +89,14 @@ extension Register {
         else { throw RegisterError.registryFilterAmbiguous }
         return foundElement
     }
+    
+    /// A method to determine if the registry contains an item by means of a filter
+    public func contains(byMatching filter: (Element) -> Bool) -> Bool {
+        kernel
+            .currentValue?
+            .filter(filter)
+            .count ?? 0 > 0
+    }
 }
 
 extension Register {
