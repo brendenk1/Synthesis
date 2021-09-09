@@ -146,6 +146,13 @@ final class RegisterTests: XCTestCase {
         let expectedOutput = true
         XCTAssertEqual(register.contains(byMatching: { $0 == 1 }), expectedOutput)
     }
+    
+    func testIsEmptyValues() {
+        let register: Register<Int> = Register()
+        XCTAssertTrue(register.isEmpty)
+        register.updateRegister(withElement: 1)
+        XCTAssertFalse(register.isEmpty)
+    }
 }
 
 fileprivate struct TestRegistryItem: Hashable {

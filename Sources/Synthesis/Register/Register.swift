@@ -40,6 +40,11 @@ extension Register {
             .eraseToAnyPublisher()
     }
     
+    /// A property to indicate if the Register is empty
+    public var isEmpty: Bool {
+        kernel.currentValue?.isEmpty ?? true
+    }
+    
     /// A method to update the registry with an element
     ///
     /// Adding a new element will insert the item into the registry, while an exiting element will be updated to reflect the instance passed in
